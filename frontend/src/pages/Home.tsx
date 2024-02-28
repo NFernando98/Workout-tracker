@@ -9,8 +9,8 @@ const Home = () => {
             try {
                 const response = await axios.get('http://localhost:4000/api/workouts');
                 if (response.status === 200) {
-                    setWorkouts(response.data.json);
-                    console.log(workouts)
+                    setWorkouts(response.data);
+                    console.log(response.data); // Log response.data here to see the fetched data
                 } else {
                     console.error('Failed to fetch workouts:', response.statusText);
                 }
