@@ -1,8 +1,11 @@
 import axios from 'axios';
-import { Key, useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
+
+// components
+import WorkoutDetails from '../components/WorkoutDetails'
 
 const Home = () => {
-    const [workouts, setWorkouts] = useState<{ _id: Key | null | undefined; title: string; }[] | null>(null);
+    const [workouts, setWorkouts] = useState<any[]>([]);
 
     useEffect(() => {
         const fetchWorkouts = async () => {
@@ -26,8 +29,8 @@ const Home = () => {
         <div className="home">
             <div className="workouts">
                 {workouts && workouts.map((workout) => (
-                    <p key={workout._id}>{workout.title}</p>
-                ))}
+                    <WorkoutDetails key={workout._id} workout={workout}  />
+          ))}
             </div>
         </div>
     );
