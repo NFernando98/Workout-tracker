@@ -47,7 +47,7 @@ Open your browser and navigate to http://localhost:4000 to view the application.
 
 Usage
 Adding a New Workout: To add a new workout, navigate to the Add Workout page and fill out the form with the workout details.
-Incoming additions:
+### Incoming additions:
 - Updating a Workout: To update an existing workout, navigate to the Edit Workout page and make the desired changes.
 - Deleting a Workout: To delete a workout, navigate to the Workouts page, find the workout you want to delete, and click the Delete button.
 
