@@ -18,6 +18,7 @@ export const WorkoutsContext = createContext<{ state: { workouts: Workout[] | nu
 export const workoutsReducer = (state: { workouts: any; }, action: { type: any; payload: any; }) => {
     switch (action.type) {
         case 'SET_WORKOUTS':
+            console.log('Handling SET_WORKOUTS action:', action.payload); // Log the payload
             // return new value that we want the state to be, so we return a new object in essence
             return {
                 // action.payload
@@ -46,7 +47,7 @@ export const WorkoutsContextProvider = ({ children }: { children: ReactNode }) =
     return (
         // value={{ state, dispatch } to provide state and dispatch to other components
         // other components can use the state, or use dispatch function to update the state
-        <WorkoutsContext.Provider value={{...state, dispatch }}>
+        <WorkoutsContext.Provider value={{state, dispatch }}>
             {children}
         </WorkoutsContext.Provider>
     )
