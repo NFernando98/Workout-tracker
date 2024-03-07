@@ -21,7 +21,7 @@ To run this project locally, follow these steps:
 1. Clone the repository:
 
    ```sh
-   git clone https://github.com/NFernando98/myworkout-app.git
+   git clone https://github.com/NFernando98/my-workout-app.git
 Install dependencies:
 
 sh
