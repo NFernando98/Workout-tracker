@@ -1,6 +1,8 @@
 import { useState } from "react"
+import { useWorkoutsContext } from '../hooks/useWorkoutsContext';
 
 const WorkoutForm = () => {
+    const { dispatch } = useWorkoutsContext() // to keep our ui in sync with out database
     const [title, setTitle] = useState<string>('');
     const [load, setLoad] = useState<string>('');
     const [reps, setReps] = useState<string>('');
@@ -31,6 +33,8 @@ const WorkoutForm = () => {
             setLoad('')
             setReps('')
             console.log('new workout added:', json)
+            dispatch({type: 'CREATE_WORKOUT', payload: json}) // payload is the single new workout we are adding. It is the json, can verify by check-
+                                                              // -ing the backend where it sends back workout that is being added back as a response
           }
       
     };
