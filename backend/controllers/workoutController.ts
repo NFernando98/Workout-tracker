@@ -29,6 +29,24 @@ export const getWorkout = async (req: Request, res: Response) => {
 export const createWorkout = async (req: Request, res: Response) => {
   const { title, load, reps } = req.body;
 
+  // TypeScript will correctly infer the type of emptyFields as an array of strings
+  let emptyFields: string[] = [];
+
+  if (!title) {
+    emptyFields.push("push");
+  }
+  if (!load) {
+    emptyFields.push("load");
+  }
+
+  if (!reps) {
+    emptyFields.push("reps");
+  }
+
+  if(emptyFields.length > 0) {
+    return res.status(400).json({ error: 'Please fill in all all the fields', emptyFields })
+  }
+
   // add doc to db
   try {
     const workout = await Workout_Model.create({ title, load, reps });
@@ -64,9 +82,12 @@ export const updateWorkout = async (req: Request, res: Response) => {
   }
 
   // second param after { _id: id } is what to update
-  const workout = await Workout_Model.findOneAndUpdate({ _id: id }, {
-    ...req.body
-  });
+  const workout = await Workout_Model.findOneAndUpdate(
+    { _id: id },
+    {
+      ...req.body,
+    }
+  );
 
   if (!workout) {
     return res.status(404).json({ error: "No such workout" });

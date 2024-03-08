@@ -7,6 +7,7 @@ const WorkoutForm = () => {
     const [load, setLoad] = useState<string>('');
     const [reps, setReps] = useState<string>('');
     const [error, setError] = useState<string>('');
+    const [emptyFields, setEmptyFields] = useState<string[]>([]);
 
     // Function to handle when submitted
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
@@ -25,13 +26,14 @@ const WorkoutForm = () => {
 
         if (!response.ok) {
             setError(json.error);
-            console.log("yes error:", json.error); // Log the error message
+            setEmptyFields(json.emptyFields)
         }
         if (response.ok) {
             setError('')
             setTitle('')
             setLoad('')
             setReps('')
+            setEmptyFields([])
             console.log('new workout added:', json)
             dispatch({type: 'CREATE_WORKOUT', payload: json}) // payload is the single new workout we are adding. It is the json, can verify by check-
                                                               // -ing the backend where it sends back workout that is being added back as a response
@@ -48,6 +50,7 @@ const WorkoutForm = () => {
                 type="text"
                 onChange={(e) => setTitle(e.target.value)}
                 value={title}
+                className={emptyFields.includes('title') ? 'error' : ''}
             />
 
             
@@ -56,6 +59,7 @@ const WorkoutForm = () => {
                 type="number"
                 onChange={(e) => setLoad(e.target.value)}
                 value={load}
+                className={emptyFields.includes('load') ? 'error' : ''}
             />
 
             
@@ -64,6 +68,7 @@ const WorkoutForm = () => {
                 type="number"
                 onChange={(e) => setReps(e.target.value)}
                 value={reps}
+                className={emptyFields.includes('reps') ? 'error' : ''}
             />
 
             <button>Add Workout</button>
