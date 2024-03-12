@@ -1,9 +1,10 @@
 import * as dotenv from "dotenv";
 import express from "express";
 import * as mongoose from "mongoose";
-import cors from 'cors';
+import cors from "cors";
 
 import workoutRoutes from "./routers/workouts";
+import userRoutes from "./routers/user";
 
 dotenv.config();
 
@@ -20,6 +21,7 @@ app.use((req, res, next) => {
 
 // routes
 app.use("/api/workouts", workoutRoutes);
+app.use("/api/user", userRoutes);
 
 // connect to DB
 mongoose
@@ -27,7 +29,9 @@ mongoose
   .then(() => {
     // listen for requests
     app.listen(port, () => {
-      console.log(`Connected to database and service listening on port ${port}`);
+      console.log(
+        `Connected to database and service listening on port ${port}`
+      );
     });
   })
   .catch((err) => {
