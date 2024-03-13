@@ -20,6 +20,7 @@ const userSchema = new Schema({
 });
 
 // static signup method (could put this logic in controller file as well)
+// uses non-arrow function to reference the model itself with "this" key word
 userSchema.statics.signup = async function (email, password) {
   // validation
   if (!email || !password) {
@@ -45,6 +46,28 @@ userSchema.statics.signup = async function (email, password) {
 
   // now store passowrd in database alongside user's email
   const user = await this.create({ email, password: hash });
+
+  return user;
+};
+
+// static method for login logic
+userSchema.statics.login = async function (email, password) {
+  if (!email || !password) {
+    throw Error("All fields must be filled");
+  }
+
+  const user = await this.findOne({ email });
+  // later we'll catch the error when we use the signup function
+  if (!user) {
+    throw Error("Invalid email");
+  }
+
+  // checking if password exists/matches.. compare(password, hashed-password)
+  const match = await bcrypt.compare(password, user.password);
+
+  if (!match) {
+    throw Error("Invalid password");
+  }
 
   return user;
 };
