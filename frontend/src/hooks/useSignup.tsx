@@ -31,10 +31,12 @@ export const useSignup = () => {
         }
 
         if (response.ok) {
-            // save the user to local storage
+            // Save the user to local storage
+            // Reason: if the user crosses off our website and returns hours later, our global state woudlve reset to null, but can detect 
+            // user's logged in with the presence of that json web token in local storage
             localStorage.setItem('user', JSON.stringify(json))
 
-            // update the auth context
+            // Update the auth context
             dispatch({ type: 'LOGIN', payload: json })
 
             setIsLoading(false)
