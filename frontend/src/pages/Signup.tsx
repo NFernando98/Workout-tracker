@@ -1,13 +1,15 @@
 import { useState } from "react"
+import { useSignup } from "../hooks/useSignup";
 
 const Signup = () => {
     const [email, setEmail] = useState<string>('');
     const [password, setPassword] = useState<string>('');
+    const {signup, error, isLoading} = useSignup()
 
     const handleSubmit = async (e: any) => {
         e.preventDefault();
 
-        console.log(email, password)
+        await signup(email, password)
     }
     
     return (
@@ -28,7 +30,11 @@ const Signup = () => {
                     value={password}
                 />
 
-                <button>Sign up</button>
+                <button disabled={isLoading}>Sign up</button>
+                {error && <div className="error">{error}</div>}
+                {/* want function to be disabled if isLoading is true because 
+                if loading is true,a req is going on so we dont want to send
+                another one right away*/} 
         </form>
     )
 }
