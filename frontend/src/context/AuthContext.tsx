@@ -13,7 +13,6 @@ export const AuthContext = createContext<{ state: { user: User[] | null }, dispa
 export const authReducer = (state: { user: any; }, action: { type: any; payload: any; }) => {
     switch (action.type) {
         case 'LOGIN':
-            console.log('authContext state: ', state)
             return {
                 user: action.payload
             };
