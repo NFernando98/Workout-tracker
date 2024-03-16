@@ -1,15 +1,23 @@
 import { useWorkoutsContext } from '../hooks/useWorkoutsContext';
-
+import { useAuthContext } from '../hooks/useAuthContext';
 // date fns
 import { formatDistanceToNow } from 'date-fns';
 
 const WorkoutDetails = ({ workout }: { workout: any }) => {
   const { dispatch } = useWorkoutsContext()
+  const { user } = useAuthContext();
 
   const handleClick = async() => {
+    if (!user){
+      return
+  }
+
     // /api/workouts/:id is the endpoint
     const response = await fetch('http://localhost:4000/api/workouts/' + workout._id, {
-      method: 'DELETE'
+      method: 'DELETE',
+      headers: {
+        'Authorization': `Bearer ${user.token}` // Assuming user.token is the JWT token
+    }
     });
     const json = await response.json()
 

@@ -1,6 +1,4 @@
 import express from "express";
-const router = express.Router();
-
 import {
   createWorkout,
   getWorkouts,
@@ -9,7 +7,12 @@ import {
   updateWorkout,
 } from "../controllers/workoutController";
 
-import Workout_Model from "../models/workoutModel";
+import requireAuth from "../middleware/requireAuth";
+
+const router = express.Router();
+
+// use middleware created
+router.use(requireAuth);
 
 // GET all workouts
 router.get("/", getWorkouts);
