@@ -30,17 +30,20 @@ const requireAuth = async (req: Request, res: Response, next: NextFunction) => {
 
   // verify token
   try {
-    const { _id }: { _id: string } = jwt.verify(token, process.env.SECRET) as {
-      _id: string;
-    };
+    const { id } = jwt.verify(token, process.env.SECRET) as { id: string };
 
-    // req.user is the selected id only
-    req.user = await User_Model.findOne({ _id }).select("_id");
-    // fire next handler function
+    const user = await User_Model.findById(id);
+
+    if (!user) {
+      console.error(`User not found for ID: ${id}`);
+      return res.status(401).json({ error: "User not found" });
+    }
+
+    req.user = user._id;
     next();
   } catch (error) {
-    console.log(error);
-    res.status(401).json({ error: "Request is not authorized" });
+    console.error("Authentication error:", error);
+    res.status(401).json({ error: "Invalid token" });
   }
 };
 

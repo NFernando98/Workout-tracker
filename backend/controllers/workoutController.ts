@@ -4,7 +4,11 @@ import * as mongoose from "mongoose";
 
 // get all workouts
 export const getWorkouts = async (req: Request, res: Response) => {
-  const workouts = await Workout_Model.find({}).sort({ createdAt: -1 });
+  // user id is attached to req in middleware
+  const user_id = req.user._id
+
+  const workouts = await Workout_Model.find({user_id}).sort({ createdAt: -1 });
+
   res.status(200).json(workouts);
 };
 
@@ -33,7 +37,7 @@ export const createWorkout = async (req: Request, res: Response) => {
   let emptyFields: string[] = [];
 
   if (!title) {
-    emptyFields.push("push");
+    emptyFields.push("title");
   }
   if (!load) {
     emptyFields.push("load");
@@ -43,13 +47,21 @@ export const createWorkout = async (req: Request, res: Response) => {
     emptyFields.push("reps");
   }
 
-  if(emptyFields.length > 0) {
-    return res.status(400).json({ error: 'Please fill in all all the fields', emptyFields })
+  if (emptyFields.length > 0) {
+    return res
+      .status(400)
+      .json({ error: "Please fill in all all the fields", emptyFields });
   }
 
   // add doc to db
   try {
-    const workout = await Workout_Model.create({ title, load, reps });
+    const user = req.user._id; // Access the user ID extracted from the token
+    const workout = await Workout_Model.create({
+      title,
+      load,
+      reps,
+      user_id: user,
+    });
     res.status(200).json(workout);
   } catch (error) {
     res.status(400).json({ error: (error as Error).message });
