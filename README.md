@@ -11,7 +11,11 @@ A full-stack web application for tracking workouts, built with Express.js, Mongo
 
 Workout Tracker is a web application that allows users to track their workouts. The application provides CRUD operations for managing workout data. Users can add and delete workouts.
 The application uses Express.js for the backend, MongoDB for the database, and React for the frontend.
-Incoming additions: Update existing ones, and delete workouts they no longer need. 
+Incoming additions: Update existing workouts. 
+
+## Authentication
+
+Implemented user authentication for login and signup functionality.
 
 ## Installation
 
@@ -45,9 +49,9 @@ npm start
 Open your browser and navigate to http://localhost:4000 to view the application.
 
 Usage
+Signup / Login to account.
 Adding a New Workout: To add a new workout, navigate to the Add Workout page and fill out the form with the workout details.
 ### Incoming Additions:
-- Authentication 
 - Updating a Workout: To update an existing workout, navigate to the Edit Workout page and make the desired changes.
 
 
