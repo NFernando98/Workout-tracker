@@ -1,6 +1,6 @@
 import { useState } from "react"
 import { useWorkoutsContext } from '../hooks/useWorkoutsContext';
-import { useAuthContext } from '../hooks/useAuthContext'; 
+import { useAuthContext } from '../hooks/useAuthContext';
 
 const WorkoutForm = () => {
     const { dispatch } = useWorkoutsContext() // to keep our ui in sync with out database
@@ -11,12 +11,13 @@ const WorkoutForm = () => {
     const [reps, setReps] = useState<string>('');
     const [error, setError] = useState<string>('');
     const [emptyFields, setEmptyFields] = useState<string[]>([]);
+    console.log("empty fields", emptyFields)
 
     // Function to handle when submitted
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
 
-        if (!user){
+        if (!user) {
             setError('You must be logged in')
             return
         }
@@ -31,13 +32,19 @@ const WorkoutForm = () => {
                 'Authorization': `Bearer ${user.token}` // Assuming user.token is the JWT token
             }
         });
-        
+
         const json = await response.json();
 
         if (!response.ok) {
             setError(json.error);
-            setEmptyFields(json.emptyFields)
+            if (Array.isArray(json.emptyFields)) {
+                setEmptyFields(json.emptyFields);
+            } else {
+                setEmptyFields([]);
+            }
         }
+
+
         if (response.ok) {
             setError('')
             setTitle('')
@@ -45,10 +52,10 @@ const WorkoutForm = () => {
             setReps('')
             setEmptyFields([])
             console.log('new workout added:', json)
-            dispatch({type: 'CREATE_WORKOUT', payload: json}) // payload is the single new workout we are adding. It is the json, can verify by check-
-                                                              // -ing the backend where it sends back workout that is being added back as a response
-          }
-      
+            dispatch({ type: 'CREATE_WORKOUT', payload: json }) // payload is the single new workout we are adding. It is the json, can verify by check-
+            // -ing the backend where it sends back workout that is being added back as a response
+        }
+
     };
 
     return (
@@ -56,25 +63,26 @@ const WorkoutForm = () => {
             <h3>Add a new workout</h3>
 
             <label>Exercise Title:</label>
-            <input 
+            <input
                 type="text"
                 onChange={(e) => setTitle(e.target.value)}
                 value={title}
+                // 'error' class there to style in css
                 className={emptyFields.includes('title') ? 'error' : ''}
             />
 
-            
+
             <label>Load (kg):</label>
-            <input 
+            <input
                 type="number"
                 onChange={(e) => setLoad(e.target.value)}
                 value={load}
                 className={emptyFields.includes('load') ? 'error' : ''}
             />
 
-            
+
             <label>Reps:</label>
-            <input 
+            <input
                 type="number"
                 onChange={(e) => setReps(e.target.value)}
                 value={reps}

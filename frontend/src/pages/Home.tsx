@@ -27,6 +27,7 @@ const Home = () => {
                 // middleware will check config and if its valid it'll give access to this endpoint
                 const response = await axios.get('http://localhost:4000/api/workouts', config);
                 console.log('API Response:', response.data); // Log the API response
+                
                 if (response.status === 200) {
                     dispatch({ type: 'SET_WORKOUTS', payload: response.data })
                     console.log('Dispatched SET_WORKOUTS'); // Log after dispatch
