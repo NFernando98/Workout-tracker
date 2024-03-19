@@ -3,7 +3,7 @@ import { useLogout } from '../hooks/useLogout';
 import { useAuthContext } from "../hooks/useAuthContext";
 
 const Navbar = () => {
-    const { logout }  = useLogout();
+    const { logout } = useLogout();
     const { user } = useAuthContext();
 
     const handleClick = () => {
@@ -14,14 +14,14 @@ const Navbar = () => {
         <header>
             <div className="container">
                 <Link to="/">
-                    <h1>Workout Bud</h1>
+                    <h1>FitTrack</h1>
                 </Link>
                 <nav>
                     {/* condition to check if we are logged in or out to outputa accordingly
                     If user is not null, then output logout and email, means logged in..*/}
                     {user && (
                         <div>
-                            <span>{ user.email }</span>
+                            <span>{user.email}</span>
                             <button onClick={handleClick}>Log out</button>
                         </div>
                     )}
