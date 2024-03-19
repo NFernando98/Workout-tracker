@@ -16,7 +16,7 @@ The application uses Express.js for the backend, MongoDB for the database, and R
 
 ## Authentication
 
-Implemented user authentication for login and signup functionality.
+Implemented user authentication for login and signup functionality using JWT.
 
 ## Installation
 
