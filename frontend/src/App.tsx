@@ -12,7 +12,7 @@ function App() {
   // User if used below to conditionally redirect to pages based on user object's status
   // Element={user ? <Home/> : <Navigate to="/login"/>} means 
   // if user is not null stay in Home, else goto login page
-
+//dayro
   const { user } = useAuthContext();
 
   return (
