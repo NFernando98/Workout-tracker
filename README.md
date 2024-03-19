@@ -16,8 +16,6 @@ The application uses Express.js for the backend, MongoDB for the database, and R
 
 ![Capture](https://github.com/NFernando98/my-workout-app/assets/61730280/8ae0c99f-fb06-4d50-9b1b-e726da27c259)
 
-![Capture](https://github.com/NFernando98/my-workout-app/assets/61730280/a5c401c9-2b3f-463a-b68d-35bce4f29b0c)
-
 ## Authentication
 
 Implemented user authentication for login and signup functionality using JWT.
