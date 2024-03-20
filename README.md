@@ -5,8 +5,10 @@ A full-stack web application for tracking workouts, built with Express.js, Mongo
 ## Table of Contents
 
 - [Description](#description)
+- [Built with](#built-with)
+- [Authentication](#authentication)
 - [Installation](#installation)
-- [Built with](#Built-with)
+
 
 
 ## Description
