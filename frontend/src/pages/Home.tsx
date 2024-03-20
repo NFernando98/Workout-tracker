@@ -16,7 +16,7 @@ const Home = () => {
             if (!user) {
                 return; // Exit early if user is null
             }
-
+            
             try {
                 const config = {
                     headers: {
@@ -27,7 +27,7 @@ const Home = () => {
                 // middleware will check config and if its valid it'll give access to this endpoint
                 const response = await axios.get('http://localhost:4000/api/workouts', config);
                 console.log('API Response:', response.data); // Log the API response
-
+                
                 if (response.status === 200) {
                     dispatch({ type: 'SET_WORKOUTS', payload: response.data })
                     console.log('Dispatched SET_WORKOUTS'); // Log after dispatch
@@ -47,29 +47,17 @@ const Home = () => {
 
 
     return (
-        <div>
-            <button className="btn btn-purple position-fixed top-2 end-0 m-4" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">Add workout</button>
-            
-            <div className="home">
-                <div className="workouts">
-                    {workouts && workouts.map((workout: any) => (
-                        <WorkoutDetails key={workout._id} workout={workout} />
-                    ))}
-                </div>
+        <div className="home">
+            <div className="workouts">
+                {workouts && workouts.map((workout: any) => (
+                    <WorkoutDetails key={workout._id} workout={workout} />
+                ))}
             </div>
-    
-            <div className="offcanvas offcanvas-end" tabIndex={-1} id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
-                <div className="offcanvas-header">
-                    <h5 className="offcanvas-title" id="offcanvasRightLabel">Add New Workout</h5>
-                    <button type="button" className="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-                </div>
-                <div className="offcanvas-body">
-                    <WorkoutForm />
-                </div>
-            </div>
+            {/* <WorkoutForm></WorkoutForm> */}
+            <button className='addWorkoutButton'>Add workout</button>
         </div>
+
     );
-    
 };
 
 export default Home;
