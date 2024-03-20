@@ -6,6 +6,8 @@ A full-stack web application for tracking workouts, built with Express.js, Mongo
 
 - [Description](#description)
 - [Installation](#installation)
+- [Built with](#Built-with)
+
 
 ## Description
 
@@ -16,6 +18,14 @@ The application uses Express.js for the backend, MongoDB for the database, and R
 
 ![Capture](https://github.com/NFernando98/my-workout-app/assets/61730280/8ae0c99f-fb06-4d50-9b1b-e726da27c259)
 
+## Built with 
+- ![Express.js](https://img.shields.io/badge/express.js-%23404d59.svg?style=for-the-badge&logo=express&logoColor=%2361DAFB)
+- 
+- ![MongoDB](https://img.shields.io/badge/MongoDB-%234ea94b.svg?style=for-the-badge&logo=mongodb&logoColor=white)
+- ![NodeJS](https://img.shields.io/badge/node.js-6DA55F?style=for-the-badge&logo=node.js&logoColor=white)
+- ![Bootstrap](https://img.shields.io/badge/bootstrap-%238511FA.svg?style=for-the-badge&logo=bootstrap&logoColor=white)
+- ![React](https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=61DAFB)
+  
 ## Authentication
 
 Implemented user authentication for login and signup functionality using JWT.
