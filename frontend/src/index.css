@@ -86,16 +86,7 @@ form button {
   border-radius: 5px;
   cursor: pointer;
 }
-.home .addWorkoutButton {
-  background: var(--primary) !important;
-  border: 0 !important;
-  color: #fff !important;
-  padding: 4px 8px !important; /* Adjust padding */
-  font-family: "Poppins" !important;
-  border-radius: 3px !important; /* Adjust border-radius */
-  cursor: pointer !important;
-  font-size: 1em !important; /* Keep font size the same */
-}
+
 div.error {
   padding: 10px;
   background: #ffefef;
@@ -160,4 +151,47 @@ form.signup, form.login {
   flex: 1;
   padding: 20px;
   overflow-y: auto;
+}
+
+.add-workout {
+  position: fixed;
+  top: 40px; /* Adjust the distance from the top */
+  right: 20px; /* Adjust the distance from the right */
+  z-index: 1000; /* Ensure the button is above other elements */
+  background: var(--primary);
+  border: 0;
+  color: #fff;
+  padding: 10px;
+  font-family: "Poppins";
+  border-radius: 5px;
+  cursor: pointer;
+}
+.btn-purple {
+  background: var(--primary);
+  border: 0;
+  color: #fff;
+  padding: 10px;
+  font-family: "Poppins";
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.btn-purple:hover {
+  background: var(--primary);
+  border: 0;
+  color: #fff;
+  padding: 10px;
+  font-family: "Poppins";
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.btn-purple.btn-purple:click {
+  background: var(--primary);
+  border: 0;
+  color: #fff;
+  padding: 10px;
+  font-family: "Poppins";
+  border-radius: 5px;
+  cursor: pointer;
 }
