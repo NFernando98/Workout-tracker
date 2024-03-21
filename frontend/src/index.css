@@ -186,7 +186,6 @@ form.signup, form.login {
   border-radius: 5px;
   cursor: pointer;
 }
-
 .btn-purple.btn-purple:click {
   background: var(--primary);
   border: 0;
