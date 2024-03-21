@@ -12,29 +12,35 @@ const Navbar = () => {
 
     return (
         <header>
-        <div className="container">
-            <Link to="/">
-                <h1>FitTrack</h1>
-            </Link>
-            <nav>
-                {/* condition to check if we are logged in or out to outputa accordingly
-                If user is not null, then output logout and email, means logged in..*/}
-                {user && (
-                    <div className='email-logout'>
-                        <span>{user.email}</span>
-                        <button onClick={handleClick}>Log out</button>
-                    </div>
-                )}
-                {/* if we don't have a user*/}
-                {!user && (
-                    <div>
-                        <Link to="/login">Login</Link>
-                        <Link to="/signup">Signup</Link>
-                    </div>
-                )}
-            </nav>
-        </div>
-    </header>
+            {/* Sidebar */}
+            <div className="sidebar">
+                <div className="container">
+                    {/* Logo */}
+                    <Link to="/">
+                        <h1 className="display-6 fw-bold">FitTrack</h1>
+                    </Link>
+                    {/* Navigation */}
+                    <nav>
+                        {/* Condition to check if user is logged in */}
+                        {user ? (
+                            // If user is logged in, display email and logout button
+                            <div className='email-logout'>
+                                <span>{user.email}</span>
+                                <button onClick={handleClick}>Log out</button>
+                            </div>
+                        ) : (
+                            // If user is not logged in, display login and signup links
+                            <div>
+                                <Link to="/login">Login</Link>
+                                <Link to="/signup">Signup</Link>
+                            </div>
+                        )}
+                    </nav>
+                </div>
+            </div>
+        </header>
+
+
     );
 };
 

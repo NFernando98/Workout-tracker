@@ -15,9 +15,7 @@ function App() {
     <div className="App">
     <BrowserRouter>
       {/* Sidebar */}
-      <div className="sidebar">
         <Navbar />
-      </div>
       {/* Content */}
       <div className="content">
         <Routes>
