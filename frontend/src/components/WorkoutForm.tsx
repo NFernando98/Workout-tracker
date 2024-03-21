@@ -60,6 +60,8 @@ const WorkoutForm = () => {
 
     return (
         <form className="create" onSubmit={handleSubmit}>
+            <h3>Add a new workout</h3>
+
             <label>Exercise Title:</label>
             <input
                 type="text"
@@ -87,7 +89,7 @@ const WorkoutForm = () => {
                 className={emptyFields.includes('reps') ? 'error' : ''}
             />
 
-            <button>Submit</button>
+            <button>Add Workout</button>
             {error && <div className="error">{error}</div>}
         </form>
     )
