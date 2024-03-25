@@ -13,7 +13,7 @@ const WorkoutDetails = ({ workout }: { workout: any }) => {
   }
 
     // /api/workouts/:id is the endpoint
-    const response = await fetch('http://localhost:4000/api/workouts/' + workout._id, {
+    const response = await fetch('https://workout-tracker-api-iota.vercel.app/api/workouts/' + workout._id, {
       method: 'DELETE',
       headers: {
         'Authorization': `Bearer ${user.token}` // Assuming user.token is the JWT token
