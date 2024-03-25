@@ -26,6 +26,9 @@ app.use((req, res, next) => {
 });
 
 // routes
+app.get("/", (req, res) => {
+  res.json("hello");
+})
 app.use("/api/workouts", workoutRoutes);
 app.use("/api/user", userRoutes);
 
