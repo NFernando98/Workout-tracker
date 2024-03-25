@@ -26,7 +26,7 @@ app.use((req, res, next) => {
 });
 
 // routes
-app.get("/", (req, res) => {
+app.get("/api", (req, res) => {
   res.json("hello");
 })
 app.use("/api/workouts", workoutRoutes);
