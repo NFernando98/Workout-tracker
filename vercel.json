@@ -1,9 +1,16 @@
 {
     "version": 2,
-    "functions": {
-      "api": {
-        "include": ["backend/**"]
+    "builds": [
+      {
+        "src": "backend/server.ts",
+        "use": "@vercel/node"
       }
-    }
+    ],
+    "routes": [
+      {
+        "src": "/api/(.*)",
+        "dest": "backend/server.ts"
+      }
+    ]
   }
   
