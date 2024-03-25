@@ -3,7 +3,6 @@
     "rewrites": [
         {"source": "/(.*)", "destination": "/"}
     ],
-    ]
     "builds": [
       {
         "src": "backend/server.ts",
