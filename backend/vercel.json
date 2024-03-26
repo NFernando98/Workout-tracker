@@ -1,6 +1,8 @@
 {
   "version": 2,
   "routes": [
-    { "src": "/api/(.*)", "dest": "server.ts" }
+    { "src": "/api/workouts/(.*)", "dest": "server.ts" },
+    { "src": "/api/user/(.*)", "dest": "server.ts" },
+    { "src": "/api", "dest": "server.ts" }  // Add this line for the /api route
   ]
 }
