@@ -1,8 +1,0 @@
-{
-  "version": 2,
-  "routes": [
-    { "src": "/api/workouts/(.*)", "dest": "/api/server.ts" },
-    { "src": "/api/user/(.*)", "dest": "/api/server.ts" },
-    { "src": "/api", "dest": "/api/server.ts" }  
-  ]
-}

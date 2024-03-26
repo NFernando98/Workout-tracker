@@ -20,7 +20,7 @@ app.use((req, res, next) => {
 });
 
 // routes
-app.get("/api", (req, res) => {
+app.get("/", (req, res) => {
   res.json("hello");
 });
 
