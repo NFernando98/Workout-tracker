@@ -3,8 +3,8 @@ import express from "express";
 import * as mongoose from "mongoose";
 import cors from "cors";
 
-import workoutRoutes from "../routers/workouts";
-import userRoutes from "../routers/user";
+import workoutRoutes from "./routers/workouts";
+import userRoutes from "./routers/user";
 
 dotenv.config();
 
