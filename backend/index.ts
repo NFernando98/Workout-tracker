@@ -28,6 +28,10 @@ app.get("/", (req, res) => {
   res.json("hello");
 });
 
+app.get("/api", (req, res) => {
+  res.json("hello api");
+});
+
 app.use("/api/workouts", workoutRoutes);
 app.use("/api/user", userRoutes);
 
