@@ -16,7 +16,7 @@ export const useSignup = () => {
         setIsLoading(true);
         setError(null)
 
-        const response = await fetch('https://workout-tracker-api-iota.vercel.app/api/user/signup', {
+        const response = await fetch('https://workout-tracker-lac.vercel.app/api/user/signup', {
             method: 'POST',
             headers: {'Content-Type': 'application/json'},
             body: JSON.stringify({ email, password })
