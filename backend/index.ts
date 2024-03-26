@@ -15,6 +15,7 @@ const port = process.env.PORT || 8000;
 app.use(
   cors({
     origin: "https://workout-tracker-client-rho.vercel.app",
+    credentials: true
   })
 );
 app.use(express.json());
