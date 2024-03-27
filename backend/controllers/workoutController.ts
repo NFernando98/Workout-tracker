@@ -31,7 +31,7 @@ export const getWorkout = async (req: Request, res: Response) => {
 
 // create new workout
 export const createWorkout = async (req: Request, res: Response) => {
-  const { title, load, reps } = req.body;
+  const { title, load, reps, selectedWeight, notes } = req.body;
 
   // TypeScript will correctly infer the type of emptyFields as an array of strings
   let emptyFields: string[] = [];
@@ -39,6 +39,7 @@ export const createWorkout = async (req: Request, res: Response) => {
   if (!title) {
     emptyFields.push("title");
   }
+
   if (!load) {
     emptyFields.push("load");
   }
@@ -47,10 +48,14 @@ export const createWorkout = async (req: Request, res: Response) => {
     emptyFields.push("reps");
   }
 
+  if(!selectedWeight) {
+    emptyFields.push("selectedWeight");
+  }
+
   if (emptyFields.length > 0) {
     return res
       .status(400)
-      .json({ error: "Please fill in all all the fields", emptyFields });
+      .json({ error: "Please fill in all the fields", emptyFields });
   }
 
   // add doc to db
@@ -59,7 +64,9 @@ export const createWorkout = async (req: Request, res: Response) => {
     const workout = await Workout_Model.create({
       title,
       load,
+      selectedWeight,
       reps,
+      notes,
       user_id: user,
     });
     res.status(200).json(workout);
