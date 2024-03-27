@@ -12,12 +12,8 @@ const app = express();
 const port = process.env.PORT || 8000;
 
 // middleware
-app.use(
-  cors({
-    origin: "https://workout-tracker-client-hjacopiyn-nfernando98s-projects.vercel.app/",
-    credentials: true
-  })
-);
+app.use(cors()); // This enables CORS for all routes
+
 app.use(express.json());
 app.use((req, res, next) => {
   console.log(req.path, req.method);
