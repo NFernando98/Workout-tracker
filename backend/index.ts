@@ -14,7 +14,7 @@ const port = process.env.PORT || 8000;
 // middleware
 app.use(
   cors({
-    origin: "https://workout-tracker-client-rho.vercel.app",
+    origin: "https://workout-tracker-client-hjacopiyn-nfernando98s-projects.vercel.app/",
     credentials: true
   })
 );
