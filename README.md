@@ -68,4 +68,10 @@ Adding a New Workout: To add a new workout, navigate to the Add Workout page and
 ### Incoming Additions:
 - Updating a Workout: To update an existing workout, navigate to the Edit Workout page and make the desired changes.
 
+# Contributors
+
+- [Nfernando98]([https://github.com/username1](https://github.com/NFernando98))
+- [dayro11]([https://github.com/username2](https://github.com/dayro11))
+
+
 
