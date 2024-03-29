@@ -45,7 +45,7 @@ export const workoutsReducer = (state: { workouts: any; }, action: { type: any; 
             console.log('Handling UPDATE_WORKOUT action:', action.payload);
             return {
                 workouts: state.workouts.map((workout: Workout) =>
-                    workout.id === action.payload.id ? action.payload : workout
+                    workout.id === action.payload._id ? action.payload : workout
                 )
             };
         

@@ -52,8 +52,8 @@ const Home = () => {
 
             <div className="home">
                 <div className="workouts">
-                    {workouts && workouts.map((workout: any) => (
-                        <WorkoutDetails key={workout._id} workout={workout} />
+                    {workouts && workouts.map((workout: any, index: number) => (
+                        <WorkoutDetails key={`${workout._id}-${index}`} workout={workout} />
                     ))}
                 </div>
             </div>

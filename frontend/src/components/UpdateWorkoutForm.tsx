@@ -4,7 +4,7 @@ import { useState } from "react"
 // date fns
 import { formatDistanceToNow } from 'date-fns';
 
-const UpdateWorkoutForm = ({ workoutId }: { workoutId: string }) => {
+const UpdateWorkoutForm = ({ workoutId, updateWorkoutDetails }: { workoutId: string, updateWorkoutDetails: (updatedWorkoutDetails: any) => void }) => {
 
   const [title, setTitle] = useState<string>('');
   const [load, setLoad] = useState<string>('');
@@ -39,6 +39,8 @@ const UpdateWorkoutForm = ({ workoutId }: { workoutId: string }) => {
     if (notes) {
       updatedWorkout.notes = notes;
     }
+    updateWorkoutDetails(updatedWorkout);
+
     const response = await fetch(`http://localhost:4000/api/workouts/${workoutId}`, {
       method: 'PATCH',
       body: JSON.stringify(updatedWorkout),
@@ -49,6 +51,7 @@ const UpdateWorkoutForm = ({ workoutId }: { workoutId: string }) => {
     });
 
     const json = await response.json();
+    console.log("json: " , json)
 
     if (response.ok) {
       console.log('updated workout:', json);
