@@ -2,10 +2,15 @@ import React, { createContext, ReactNode, useReducer } from "react";
 
 // Define the shape of a workout object
 interface Workout {
-    id: number;
-    name: string;
+    id: string;
+    title: string;
+    load: number;
     reps: number;
+    selectedWeight: string;
+    notes: string;
+    createdAt: Date;
 }
+
 
 // Create the context with an initial value of an empty array of Workout objects
 export const WorkoutsContext = createContext<{ state: { workouts: Workout[] | null }, dispatch: React.Dispatch<any> }>({
@@ -36,6 +41,15 @@ export const workoutsReducer = (state: { workouts: any; }, action: { type: any; 
             return {
                 workouts: state.workouts.filter((w: { _id: any; }) => w._id !== action.payload._id)
             }
+        case 'UPDATE_WORKOUT':
+            console.log('Handling UPDATE_WORKOUT action:', action.payload);
+            return {
+                workouts: state.workouts.map((workout: Workout) =>
+                    workout.id === action.payload.id ? action.payload : workout
+                )
+            };
+        
+            
         default:
             return state;
     }

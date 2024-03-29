@@ -208,3 +208,16 @@ form.signup, form.login {
 .button-group {
   text-align: right;
 }
+
+/*update workout component*/
+.btn-purple-outline {
+  white-space: nowrap; /* Prevent text from wrapping */
+  background: #fff;
+  color: #706c6c;
+  border:  #706c6c;
+  padding: 6px 10px;
+  border-radius: 5px;
+  font-family: "Poppins";
+  cursor: pointer;
+  font-size: 1em;
+}

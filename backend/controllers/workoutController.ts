@@ -97,20 +97,45 @@ export const updateWorkout = async (req: Request, res: Response) => {
   const { id } = req.params;
 
   if (!mongoose.Types.ObjectId.isValid(id)) {
-    return res.status(404).json({ error: "No such workout" });
+    return res.status(404).json({ error: 'No such workout' });
   }
 
-  // second param after { _id: id } is what to update
-  const workout = await Workout_Model.findOneAndUpdate(
-    { _id: id },
-    {
-      ...req.body,
+  const { title, load, reps, selectedWeight, notes } = req.body;
+
+  if (!title && !load && !reps && !selectedWeight && !notes) {
+    return res.status(400).json({ error: 'No fields provided for update' });
+  }
+
+  const updatedFields: any = {};
+  if (title) {
+    updatedFields.title = title;
+  }
+  if (load) {
+    updatedFields.load = load;
+  }
+  if (reps) {
+    updatedFields.reps = reps;
+  }
+  if (selectedWeight) {
+    updatedFields.selectedWeight = selectedWeight;
+  }
+  if (notes) {
+    updatedFields.notes = notes;
+  }
+
+  try {
+    const workout = await Workout_Model.findOneAndUpdate(
+      { _id: id },
+      { $set: updatedFields },
+      { new: true }
+    );
+
+    if (!workout) {
+      return res.status(404).json({ error: 'No such workout' });
     }
-  );
 
-  if (!workout) {
-    return res.status(404).json({ error: "No such workout" });
+    res.status(200).json(workout);
+  } catch (error) {
+    res.status(500).json({ error: (error as Error).message });
   }
-
-  res.status(200).json(workout);
 };
