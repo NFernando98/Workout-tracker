@@ -22,7 +22,7 @@ const UpdateWorkoutForm = ({ workoutId, updateWorkoutDetails }: { workoutId: str
     if (!user) {
       return;
     }
-    const updatedWorkout: { [key: string]: any } = {}; // Initialize as an empty object
+    const updatedWorkout: { [key: string]: any } = {}; //empty array
     // Only include attributes that are not empty
     if (title) {
       updatedWorkout.title = title;
