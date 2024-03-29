@@ -96,7 +96,9 @@ const UpdateWorkoutForm = ({ workoutId }: { workoutId: string }) => {
         rows={5}
       />
 
-      <button>Submit</button>
+      <div className="button-group">
+        <button className="btn-purple">Update</button> &nbsp;
+      </div>
 
     </form>
   )
