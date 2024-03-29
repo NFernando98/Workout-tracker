@@ -22,7 +22,7 @@ const WorkoutDetails = ({ workout }: { workout: any }) => {
 
     const updatedWorkout = { title, load, selectedWeight, reps, notes };
 
-    const response = await fetch('http://localhost:4000/api/workouts/' + workout._id, {
+    const response = await fetch('https://workout-tracker-lac.vercel.app/api/workouts/' + workout._id, {
       method: 'PATCH',
       body: JSON.stringify(updatedWorkout),
       headers: {
@@ -68,7 +68,7 @@ const WorkoutDetails = ({ workout }: { workout: any }) => {
         value={title}
       />
 
-      <label>Load <select  value={workout.selectedWeight} onChange={(e) => setSelectedWeight(e.target.value)}>
+      <label>Load <select  value={selectedWeight} onChange={(e) => setSelectedWeight(e.target.value)}>
                     <option  value="kg">kg</option>
                     <option  value="lbs">lbs</option>
                     </select>:
