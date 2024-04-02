@@ -4,15 +4,15 @@ import { useState } from "react"
 // date fns
 import { formatDistanceToNow } from 'date-fns';
 
-const UpdateWorkoutForm = ({ workoutId, updateWorkoutDetails }: { workoutId: string, updateWorkoutDetails: (updatedWorkoutDetails: any) => void }) => {
+const UpdateWorkoutForm = ({ workoutId, updateWorkoutDetails, handleCancelEdit }: { workoutId: any, updateWorkoutDetails: (updatedWorkoutDetails: any) => void, handleCancelEdit: () => void}) => {
 
-  const [title, setTitle] = useState<string>('');
-  const [load, setLoad] = useState<string>('');
-  const [reps, setReps] = useState<string>('');
+  const [title, setTitle] = useState<string>(workoutId.title);
+  const [load, setLoad] = useState<string>(workoutId.load);
+  const [reps, setReps] = useState<string>(workoutId.reps);
   const [error, setError] = useState<string>('');
   const [emptyFields, setEmptyFields] = useState<string[]>([]);
-  const [selectedWeight, setSelectedWeight] = useState<string>("kg");
-  const [notes, setNotes] = useState<string>('');
+  const [selectedWeight, setSelectedWeight] = useState<string>(workoutId.selectedWeight);
+  const [notes, setNotes] = useState<string>(workoutId.notes);
   const { dispatch } = useWorkoutsContext(); // to keep our ui in sync with out database
   const { user } = useAuthContext();
   const [showForm, setShowForm] = useState(true); // state variable to track form visibility
@@ -41,7 +41,7 @@ const UpdateWorkoutForm = ({ workoutId, updateWorkoutDetails }: { workoutId: str
     }
     updateWorkoutDetails(updatedWorkout);
 
-    const response = await fetch(`http://localhost:4000/api/workouts/${workoutId}`, {
+    const response = await fetch(`http://localhost:4000/api/workouts/${workoutId._id}`, {
       method: 'PATCH',
       body: JSON.stringify(updatedWorkout),
       headers: {
@@ -57,6 +57,7 @@ const UpdateWorkoutForm = ({ workoutId, updateWorkoutDetails }: { workoutId: str
       console.log('updated workout:', json);
       dispatch({ type: 'UPDATE_WORKOUT', payload: json }); // Update local state with the updated workout
       setShowForm(false); // hide the form after successful update
+      handleCancelEdit();
     }
   };
 

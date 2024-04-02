@@ -47,16 +47,22 @@ const WorkoutDetails = ({ workout }: { workout: any }) => {
 
   return (
     <div className="workout-details">
-      <h4>{currentWorkout.title}</h4>
-      <p><strong>Load (kg): </strong>{currentWorkout.load}</p>
-      <p><strong>Number of reps: </strong>{currentWorkout.reps}</p>
+      <details>
+        <summary>
+          <h4>{(currentWorkout.title).toUpperCase()}</h4>
+          <p><strong>Load ({currentWorkout.selectedWeight}): </strong>{currentWorkout.load}</p>
+          <p><strong>Number of reps: </strong>{currentWorkout.reps}</p>
+        </summary>
+        <p><strong>Notes:</strong></p>
+        <textarea value={currentWorkout.notes} readOnly></textarea>
+      </details>
       <p>{formatDistanceToNow(new Date(currentWorkout.createdAt), { addSuffix: true })}</p>
       <div className="action-buttons">
         <span className="material-symbols-outlined delete-button" onClick={handleClick}>delete</span>
         {!editMode && <span className="material-symbols-outlined" onClick={handleUpdateClick}>edit</span>}
         {editMode && <span className="material-symbols-outlined" onClick={handleCancelEdit}>cancel</span>}
       </div>
-      {editMode && <UpdateWorkoutForm workoutId={currentWorkout._id} updateWorkoutDetails={updateWorkoutDetails} />}
+      {editMode && <UpdateWorkoutForm workoutId={currentWorkout} updateWorkoutDetails={updateWorkoutDetails} handleCancelEdit={handleCancelEdit}/>}
     </div>
   )
 }
