@@ -12,7 +12,8 @@ const app = express();
 const port = process.env.PORT || 8000;
 
 // middleware
-app.use(cors());
+app.use(cors()); // This enables CORS for all routes
+
 app.use(express.json());
 app.use((req, res, next) => {
   console.log(req.path, req.method);
@@ -20,6 +21,14 @@ app.use((req, res, next) => {
 });
 
 // routes
+app.get("/", (req, res) => {
+  res.json("hello");
+});
+
+app.get("/api", (req, res) => {
+  res.json("hello api");
+});
+
 app.use("/api/workouts", workoutRoutes);
 app.use("/api/user", userRoutes);
 
