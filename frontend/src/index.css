@@ -142,26 +142,184 @@ form.signup, form.login {
 .App {
   display: flex;
   height: 100vh;
+  flex-direction: row;
 }
+
 /* Sidebar */
 .sidebar {
-  width: 250px;
-  height: 100vh; /* Set height to 100% of viewport height */
-  padding: 0px;
-  box-shadow: 2px 0px 5px rgba(0,0,0,0.1);
-  background: #fff;
+  background-color: #fff;
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 15px 4px;
+  width: 15rem;
+  height: 100vh;
+  transition: 0.5s all;
+  
+  .logo-container {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+
+    h1 {
+      font-family: 'Poppins', sans-serif;
+      font-size: 38px;
+      color: black;
+      padding: 0 0 0 1rem;
+    }
+  }
+
+  .menu-container {
+    i {
+      position: absolute;
+      top: 93px; /* adjust as needed */
+      right: 0;
+      transform: translateY(-50%);
+      border: none;
+      background-color: transparent;
+    }
+  }
+
+  .links-container {
+    margin: 1.5rem 0 0 0;
+
+    ul {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      flex-direction: column;
+      list-style: none;
+      padding: 0;
+      margin: 0;
+
+      li {
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        flex-direction: row;
+        margin: 0.75rem 0;
+        padding: 0.75rem 0;
+        width: 100%;
+        border-radius: 1rem;
+        cursor: pointer;
+
+        i {
+          padding: 0 1rem 0 0.5rem;
+        }
+
+        a {
+          text-decoration: none;
+          color: rgb(0, 0, 0);
+          font-size: 20px;
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          margin: 0 0 0 0.5rem;
+        }
+      }
+
+      li.active {
+        background-color: rgb(232, 154, 248);
+
+        a {
+          color: purple;
+        }
+      }
+
+      li:hover {
+        background-color: lightgrey;
+        transition: 0.25s;
+      }
+    }
+  }
+
+  .profile-container {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-direction: row;
+    position: absolute;
+    bottom: 20px;
+
+    i {
+      padding: 0 1rem 0 0.5rem;
+    }
+
+    button {
+      border: none;
+      background-color: transparent;
+      cursor: pointer;
+    }
+  }
+
 }
-.sidebar h1 {
-  margin-left: 20px; /* Add margin to the left of the h1 */
-  font-family: 'Poppins', sans-serif; /* Use Poppins font for the h1 */
-  border-bottom: 1px solid #000; /* Add a 1px solid black border to the bottom of the h1 */
-  line-height: 2; /* Set the line height to improve the appearance */
+.sidebar.active {
+  flex: 1;
+  width: 4.5rem;
+  transition: 0.5s all;
+
+  .logo-container.active {
+    h1.title {
+      opacity: 0;
+    }
+  }
+
+  .links-container {
+    a {
+      opacity: 0;
+    }
+  }
+
+  .profile-container {
+    p {
+      opacity: 0;
+    }
+  }
+
+}
+
+/* Style for Profile Icon */
+.profile-dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 100px;
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+  z-index: 1;
+
+  a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+  }
+
+  a:hover {
+    background-color: #ddd;
+  }
+}
+
+/* To show the dropdown menu to log out */
+.show {
+  display: block;
+  bottom: 60px;
+}
+
+/* To display Login and Signup links at the bottom*/
+.login-logout-container {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-direction: row;
+  position: absolute;
+  bottom: 20px;
 }
 
 /* Content */
 .content {
   flex: 1;
-  padding: 20px;
+  padding: 100px 0px 0px 250px;
   overflow-y: auto;
 }
 

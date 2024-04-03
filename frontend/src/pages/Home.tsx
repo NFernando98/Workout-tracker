@@ -7,6 +7,7 @@ import { useAuthContext } from '../hooks/useAuthContext';
 import WorkoutDetails from '../components/WorkoutDetails'
 import WorkoutForm from '../components/WorkoutForm'
 
+
 const Home = () => {
     const { state: { workouts }, dispatch } = useWorkoutsContext();
     const { user } = useAuthContext();
