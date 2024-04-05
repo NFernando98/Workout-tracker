@@ -1,3 +1,4 @@
+import './workoutDetails.css'; 
 // WorkoutDetails.tsx
 import { useWorkoutsContext } from '../hooks/useWorkoutsContext';
 import { useAuthContext } from '../hooks/useAuthContext';
