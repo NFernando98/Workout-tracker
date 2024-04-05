@@ -11,7 +11,7 @@ import requireAuth from "../middleware/requireAuth";
 
 const router = express.Router();
 
-// use middleware created
+// use middleware created, its gonna run this first before or in b/w all the routes below
 router.use(requireAuth);
 
 // GET all workouts

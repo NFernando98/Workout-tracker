@@ -99,8 +99,14 @@ form.signup, form.login {
   padding: 20px;
   overflow-y: auto;
   margin-left: 10px; /* Default margin to accommodate sidebar */
+  margin-top: 50px
 }
-
+@media (min-width: 768px) {
+  /* Styles for screens wider than 768px (not phone mode) */
+  .content {
+      margin-left: 250px; /* Shift content to the right for sidebar */
+  }
+}
 .btn-purple {
   background: var(--primary);
   border: 0;
