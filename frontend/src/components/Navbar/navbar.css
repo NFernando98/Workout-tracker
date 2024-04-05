@@ -1,0 +1,24 @@
+/* Sidebar */
+.sidebar {
+    width: 250px;
+    height: 200vh;
+    padding: 0px;
+    box-shadow: 2px 0px 5px rgba(0, 0, 0, 0.1);
+    background: #fff;
+    transition: transform 0.3s ease; /* Add transition effect */
+}
+
+@media (max-width: 768px) {
+    .position-fixed {
+        position: static !important;
+    }
+
+    .offcanvas {
+        width: 100% !important;
+        max-width: 100% !important;
+    }
+}
+
+
+
+
