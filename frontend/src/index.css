@@ -25,8 +25,20 @@ header a {
 .home {
   display: grid;
   grid-template-columns: 3fr 1fr;
-  gap: 100px;
+  gap: 100px; /* Reduce the gap between columns */
+  margin: 20px;
+  margin-left: 40px;
 }
+@media (max-width: 768px) {
+  .home {
+    display: grid;
+    grid-template-columns: 3fr 1fr;
+    gap: 100px; /* Reduce the gap between columns */
+    margin: 20px;
+    margin-left: 40px;
+  }
+}
+
 
 /* new workout form */
 label, input {
@@ -98,13 +110,18 @@ form.signup, form.login {
   flex: 1;
   padding: 20px;
   overflow-y: auto;
-  margin-left: 10px; /* Default margin to accommodate sidebar */
+  margin-left: -100px; /* Default margin to accommodate sidebar */
   margin-top: 50px
 }
 @media (min-width: 768px) {
   /* Styles for screens wider than 768px (not phone mode) */
   .content {
       margin-left: 250px; /* Shift content to the right for sidebar */
+      flex: 1;
+      padding: 20px;
+      overflow-y: auto;
+      margin-left: -100px; /* Default margin to accommodate sidebar */
+      margin-top: 50px
   }
 }
 .btn-purple {
