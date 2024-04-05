@@ -1,6 +1,8 @@
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import { useAuthContext } from './hooks/useAuthContext';
 import { useSidebarContext } from './context/SidebarContext';
+import { BsList } from 'react-icons/bs';
+
 
 // pages & components
 import Home from './pages/Home'
@@ -16,7 +18,11 @@ function App() {
     <div className="App">
       <BrowserRouter>
         <Navbar />
-        <div><button onClick={toggleSidebar}>Toggle</button></div>
+        <div>
+          <button onClick={toggleSidebar}>
+            <BsList style={{ color: 'black' }} />
+          </button>
+        </div>
         <div className='content'>
           <Routes>
             <Route
