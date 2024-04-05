@@ -20,8 +20,7 @@ const Navbar= () => {
     }
 
     return (
-        <div className={"sidebar"}>
-
+        <div className="sidebar">
             {/* Logo */}
             <h1 className="display-6 fw-bold">FitTrack</h1>
             <nav>

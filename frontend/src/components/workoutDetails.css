@@ -2,13 +2,13 @@
     background: #fff;
     border-radius: 10px;
     margin: 20px auto;
-    padding: 20px;
+    padding: 10px;
     position: relative;
     box-shadow: 2px 2px 5px rgba(0,0,0,0.05);
     cursor: pointer;
   }
   .workout-details h4 {
-    margin: 0 0 10px 0;
+    margin: 0 0 5px 0;
     font-size: 1.2em;
     color: var(--primary);
   }
@@ -39,23 +39,43 @@ summary {
     cursor: pointer;
   }
   
-
-  
 .material-symbols-outlined {
+    margin-top: -10px;
     font-size: 21px; /* Adjust as needed */
   }
 .delete-button {
-    margin-top: 60px; /* Adjust as needed */
+    margin-top: 50px; /* Adjust as needed */
   }
 
   @media (max-width: 768px) {
     .workout-details {
-      position: fixed;
-      top: 50px; /* Adjust the top position to accommodate the navbar */
-      left: 0;
-      right: 0;
-      width: 80%;
+        padding: 5px; /* Smaller padding */
+        font-size: 0.8em; /* Smaller font size */
+        width: 200%; /* Adjust the width as needed */
+        max-width: 200%; /* Optional: Set a maximum width */
     }
 
-  }
+    .workout-details h4 {
+        font-size: 1em; /* Smaller h4 font size */
+    }
+
+    .workout-details p {
+        font-size: 0.7em; /* Smaller p font size */
+    }
+
+    .workout-details span {
+        top: 15px; /* Adjusted position for smaller screen */
+        right: 3px; /* Adjusted position for smaller screen */
+        font-size: 0.7em; /* Smaller font size */
+        padding: 5px; /* Smaller padding */
+    }
+    .material-symbols-outlined {
+        margin-top: -10px;
+        font-size: 21px; /* Adjust as needed */
+      }
+    .delete-button {
+        margin-top: 30px; /* Adjust as needed */
+      }
+}
+
   

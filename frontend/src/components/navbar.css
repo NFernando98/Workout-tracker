@@ -1,16 +1,11 @@
 /* Sidebar */
 .sidebar {
     width: 250px;
-    height: 100vh;
+    height: 200vh;
     padding: 0px;
     box-shadow: 2px 0px 5px rgba(0, 0, 0, 0.1);
     background: #fff;
     transition: transform 0.3s ease; /* Add transition effect */
-}
-
-/* Closed sidebar state */
-.sidebar.closed {
-    transform: translateX(-250px); /* Hide the sidebar by moving it outside the viewport */
 }
 
 .sidebar h1 {
@@ -20,15 +15,11 @@
     line-height: 2;
 }
 
-/* Navbar Container Styles */
-.navbar-container {
-    position: relative;
-}
+
 
 @media (max-width: 768px) {
     .position-fixed {
         position: static !important;
-        transform: translateX(0);
     }
 
     .offcanvas {
