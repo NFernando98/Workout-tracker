@@ -5,7 +5,6 @@ import { useAuthContext } from '../hooks/useAuthContext';
 
 // components
 import WorkoutDetails from '../components/WorkoutDetails/WorkoutDetails'
-import WorkoutForm from '../components/WorkoutForm'
 import Topbar from '../components/Topbar/Topbar'
 
 
