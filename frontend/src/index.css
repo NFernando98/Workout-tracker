@@ -27,7 +27,7 @@ header a {
   grid-template-columns: 3fr 1fr;
   gap: 100px; /* Reduce the gap between columns */
   margin: 20px;
-  margin-left: 200px;
+  margin-left: 100px;
 }
 @media (max-width: 768px) {
   .home {
