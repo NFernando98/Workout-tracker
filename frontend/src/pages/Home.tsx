@@ -49,23 +49,11 @@ const Home = () => {
 
     return (
         <div className="home">
-            <Topbar/>
-            {/* <button className="btn btn-purple position-fixed top-2 end-0 m-4" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">Add workout</button> */}
-
+            <Topbar />
             <div className="workouts">
                 {workouts && workouts.map((workout: any, index: number) => (
                     <WorkoutDetails key={`${workout._id}-${index}`} workout={workout} />
                 ))}
-            </div>
-
-            <div className="offcanvas offcanvas-end" tabIndex={-1} id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
-                <div className="offcanvas-header">
-                    <h5 className="offcanvas-title" id="offcanvasRightLabel">Add New Workout</h5>
-                    <button type="button" className="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-                </div>
-                <div className="offcanvas-body">
-                    <WorkoutForm />
-                </div>
             </div>
         </div>
     );
