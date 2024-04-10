@@ -4,7 +4,7 @@ import { useWorkoutsContext } from '../hooks/useWorkoutsContext';
 import { useAuthContext } from '../hooks/useAuthContext';
 
 // components
-import WorkoutDetails from '../components/WorkoutDetails'
+import WorkoutDetails from '../components/WorkoutDetails/WorkoutDetails'
 import WorkoutForm from '../components/WorkoutForm'
 
 const Home = () => {
@@ -45,17 +45,14 @@ const Home = () => {
         }
     }, [dispatch, user]);
 
-
     return (
-        <div>
-            <button className="btn btn-purple position-fixed top-2 end-0 m-4" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">Add workout</button>
+        <div className="home">
+            {/* <button className="btn btn-purple position-fixed top-2 end-0 m-4" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">Add workout</button> */}
 
-            <div className="home">
-                <div className="workouts">
-                    {workouts && workouts.map((workout: any, index: number) => (
-                        <WorkoutDetails key={`${workout._id}-${index}`} workout={workout} />
-                    ))}
-                </div>
+            <div className="workouts">
+                {workouts && workouts.map((workout: any, index: number) => (
+                    <WorkoutDetails key={`${workout._id}-${index}`} workout={workout} />
+                ))}
             </div>
 
             <div className="offcanvas offcanvas-end" tabIndex={-1} id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
@@ -69,7 +66,6 @@ const Home = () => {
             </div>
         </div>
     );
-
 };
 
 export default Home;

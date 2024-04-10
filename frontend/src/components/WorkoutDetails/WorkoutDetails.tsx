@@ -1,14 +1,15 @@
+import './workoutDetails.css';
 // WorkoutDetails.tsx
-import { useWorkoutsContext } from '../hooks/useWorkoutsContext';
-import { useAuthContext } from '../hooks/useAuthContext';
+import { useWorkoutsContext } from '../../hooks/useWorkoutsContext';
+import { useAuthContext } from '../../hooks/useAuthContext';
 import { formatDistanceToNow } from 'date-fns';
 import { useState } from "react"
-import UpdateWorkoutForm from '../components/UpdateWorkoutForm'
+import UpdateWorkoutForm from '../UpdateWorkoutForm'
 
 const WorkoutDetails = ({ workout }: { workout: any }) => {
   const { dispatch } = useWorkoutsContext();
   const { user } = useAuthContext();
-  const [editMode, setEditMode] = useState(false); 
+  const [editMode, setEditMode] = useState(false);
   const [currentWorkout, setCurrentWorkout] = useState(workout);
 
   const handleClick = async () => {
@@ -62,7 +63,7 @@ const WorkoutDetails = ({ workout }: { workout: any }) => {
         {!editMode && <span className="material-symbols-outlined" onClick={handleUpdateClick}>edit</span>}
         {editMode && <span className="material-symbols-outlined" onClick={handleCancelEdit}>cancel</span>}
       </div>
-      {editMode && <UpdateWorkoutForm workoutId={currentWorkout} updateWorkoutDetails={updateWorkoutDetails} handleCancelEdit={handleCancelEdit}/>}
+      {editMode && <UpdateWorkoutForm workoutId={currentWorkout} updateWorkoutDetails={updateWorkoutDetails} handleCancelEdit={handleCancelEdit} />}
     </div>
   )
 }

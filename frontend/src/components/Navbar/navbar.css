@@ -1,0 +1,31 @@
+/* Sidebar */
+.sidebar {
+    width: 250px;
+    height: 100vh; /* Set sidebar height to match viewport height */
+    padding: 0px;
+    box-shadow: 2px 0px 5px rgba(0, 0, 0, 0.1);
+    background: #fff;
+}
+
+@media (max-width: 768px) {
+    .position-fixed {
+        position: static !important;
+    }
+
+    .offcanvas {
+        width: 100% !important;
+        max-width: 100% !important;
+    }
+
+    .sidebar {
+        width: 200px;
+        height: 100vh; /* Set sidebar height to match viewport height */
+        padding: 0px;
+        box-shadow: 2px 0px 5px rgba(0, 0, 0, 0.1);
+        background: #fff;
+    }
+}
+
+
+
+

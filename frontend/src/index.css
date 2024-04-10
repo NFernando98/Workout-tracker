@@ -12,12 +12,6 @@ body {
   font-family: 'Poppins', sans-serif; /* Use Poppins font for the entire page */
 }
 
-.container {
-  display: flex;
-  flex-direction: column;
-  height: 100vh;
-}
-
 header a {
   color: #333;
   text-decoration: none;
@@ -31,47 +25,20 @@ header a {
 .home {
   display: grid;
   grid-template-columns: 3fr 1fr;
-  gap: 100px;
+  gap: 100px; /* Reduce the gap between columns */
+  margin: 20px;
+  margin-left: 200px;
 }
-.workout-details {
-  background: #fff;
-  border-radius: 10px;
-  margin: 20px auto;
-  padding: 20px;
-  position: relative;
-  box-shadow: 2px 2px 5px rgba(0,0,0,0.05);
-  cursor: pointer;
+@media (max-width: 768px) {
+  .home {
+    display: grid;
+    grid-template-columns: 3fr 1fr;
+    gap: 100px; /* Reduce the gap between columns */
+    margin: 20px;
+    margin-left: 80px;
+  }
 }
-.workout-details h4 {
-  margin: 0 0 10px 0;
-  font-size: 1.2em;
-  color: var(--primary);
-}
-.workout-details p {
-  margin: 0;
-  font-size: 0.9em;
-  color: #555;
-}
-.workout-details span {
-  position: absolute;
-  top: 20px;
-  right: 20px;
-  cursor: pointer;
-  background: #f1f1f1;
-  padding: 6px;
-  border-radius: 50%;
-  color: #333;
-}
-details {
-  user-select: none;
-}
-summary {
-  display: block;
-  cursor: pointer;
-}
-summary::-webkit-details-marker {
-  display: none;
-}
+
 
 /* new workout form */
 label, input {
@@ -107,17 +74,11 @@ div.error {
 input.error {
   border: 1px solid var(--error);
 }
-/* navbar */
-nav {
-  margin-top: auto; /* Pushes the nav to the bottom */
-}
 
 .email-logout {
   align-items: center; /* Align items vertically center */
   margin: 20px; /* Add margin around the email-logout section */
 }
-
-
 .email-logout button {
   white-space: nowrap; /* Prevent text from wrapping */
   background: #fff;
@@ -143,40 +104,25 @@ form.signup, form.login {
   display: flex;
   height: 100vh;
 }
-/* Sidebar */
-.sidebar {
-  width: 250px;
-  height: 100vh; /* Set height to 100% of viewport height */
-  padding: 0px;
-  box-shadow: 2px 0px 5px rgba(0,0,0,0.1);
-  background: #fff;
-}
-.sidebar h1 {
-  margin-left: 20px; /* Add margin to the left of the h1 */
-  font-family: 'Poppins', sans-serif; /* Use Poppins font for the h1 */
-  border-bottom: 1px solid #000; /* Add a 1px solid black border to the bottom of the h1 */
-  line-height: 2; /* Set the line height to improve the appearance */
-}
 
 /* Content */
 .content {
   flex: 1;
   padding: 20px;
   overflow-y: auto;
+  margin-left: -100px; /* Default margin to accommodate sidebar */
+  margin-top: 50px
 }
-
-.add-workout {
-  position: fixed;
-  top: 40px; /* Adjust the distance from the top */
-  right: 20px; /* Adjust the distance from the right */
-  z-index: 1000; /* Ensure the button is above other elements */
-  background: var(--primary);
-  border: 0;
-  color: #fff;
-  padding: 10px;
-  font-family: "Poppins";
-  border-radius: 5px;
-  cursor: pointer;
+@media (min-width: 768px) {
+  /* Styles for screens wider than 768px (not phone mode) */
+  .content {
+      margin-left: 250px; /* Shift content to the right for sidebar */
+      flex: 1;
+      padding: 20px;
+      overflow-y: auto;
+      margin-left: -100px; /* Default margin to accommodate sidebar */
+      margin-top: 50px
+  }
 }
 .btn-purple {
   background: var(--primary);
@@ -205,9 +151,22 @@ form.signup, form.login {
   border-radius: 5px;
   cursor: pointer;
 }
-.button-group {
-  text-align: right;
+/* CSS for the "Add Workout" button */
+.btn-add-workout {
+  position: fixed;
+  top: 2rem;
+  right: 2rem;
+  z-index: 1000; /* Ensure it's above other elements */
+  display: block; /* Ensure it's visible */
 }
+@media (max-width: 768px) {
+  /* Adjust position for smaller screens */
+  .btn-add-workout {
+    top: 1rem;
+    right: 1rem;
+  }
+}
+
 
 /*update workout component*/
 .btn-purple-outline {
@@ -222,11 +181,6 @@ form.signup, form.login {
   font-size: 1em;
 }
 
-.material-symbols-outlined {
-  font-size: 21px; /* Adjust as needed */
-}
-.delete-button {
-  margin-top: 60px; /* Adjust as needed */
-}
+
 
 
