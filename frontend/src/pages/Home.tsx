@@ -6,6 +6,8 @@ import { useAuthContext } from '../hooks/useAuthContext';
 // components
 import WorkoutDetails from '../components/WorkoutDetails/WorkoutDetails'
 import WorkoutForm from '../components/WorkoutForm'
+import Topbar from '../components/Topbar/Topbar'
+
 
 const Home = () => {
     const { state: { workouts }, dispatch } = useWorkoutsContext();
@@ -47,6 +49,7 @@ const Home = () => {
 
     return (
         <div className="home">
+            <Topbar/>
             {/* <button className="btn btn-purple position-fixed top-2 end-0 m-4" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">Add workout</button> */}
 
             <div className="workouts">
