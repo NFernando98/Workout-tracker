@@ -81,7 +81,13 @@ summary {
         list-style-type: none; /* Hide the default list item marker */
         -webkit-tap-highlight-color: transparent; /* Ensure tap highlight is not shown */
         cursor: pointer; /* Set cursor to pointer for usability */
+        -webkit-appearance: none !important; /* Hide default arrow on iOS */
       }
+
+      summary::-webkit-details-marker {
+        display: none;
+      }
+      
       
       
     
