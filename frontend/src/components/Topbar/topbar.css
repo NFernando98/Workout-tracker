@@ -1,0 +1,62 @@
+.top-bar {
+    background: #f1f1f1;
+    color: #020202;
+    padding: 10px 20px;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    border-bottom: 1px solid #ddd; /* Horizontal line below the top bar */
+}
+
+.top-bar-content {
+    max-width: 1400px;
+    padding: 10px 20px;
+    margin: 0 auto;
+    font-weight: bold;
+}
+
+.btn-purple {
+    background: var(--primary);
+    border: 0;
+    color: #fff;
+    padding: 10px;
+    font-family: "Poppins";
+    border-radius: 0px;
+    cursor: pointer;
+}
+
+.btn-purple:hover {
+    background: #8d58ff; /* Use a lighter shade of the primary color */
+    border: 0;
+    color: #fff;
+    padding: 10px;
+    font-family: "Poppins";
+    cursor: pointer;
+}
+
+
+.btn-purple.btn-purple:click {
+    background: var(--primary);
+    border: 0;
+    color: #fff;
+    padding: 10px;
+    font-family: "Poppins";
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+
+
+/* Media query for smaller screens */
+@media (max-width: 768px) {
+    .top-bar {
+        padding: 10px; /* Reduce padding for smaller screens */
+    }
+
+    .btn-purple {
+        padding: 6px; /* Reduce button padding for smaller screens */
+        font-size: 0.8rem; /* Reduce font size for smaller screens */
+    }
+
+}

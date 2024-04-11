@@ -127,3 +127,4 @@ const WorkoutDetails = ({ workout }: { workout: any }) => {
 }
 
 export default WorkoutDetails
+

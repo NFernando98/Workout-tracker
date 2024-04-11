@@ -4,8 +4,9 @@ import { useWorkoutsContext } from '../hooks/useWorkoutsContext';
 import { useAuthContext } from '../hooks/useAuthContext';
 
 // components
-import WorkoutDetails from '../components/WorkoutDetails'
-import WorkoutForm from '../components/WorkoutForm'
+import WorkoutDetails from '../components/WorkoutDetails/WorkoutDetails'
+import Topbar from '../components/Topbar/Topbar'
+
 
 const Home = () => {
     const { state: { workouts }, dispatch } = useWorkoutsContext();
@@ -25,7 +26,7 @@ const Home = () => {
                 };
 
                 // middleware will check config and if its valid it'll give access to this endpoint
-                const response = await axios.get('https://workout-tracker-lac.vercel.app/api/workouts', config);
+                const response = await axios.get('http://localhost:4000/api/workouts', config);
                 console.log('API Response:', response.data); // Log the API response
 
                 if (response.status === 200) {
@@ -45,31 +46,16 @@ const Home = () => {
         }
     }, [dispatch, user]);
 
-
     return (
-        <div>
-            <button className="btn btn-purple position-fixed top-2 end-0 m-4" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">Add workout</button>
-
-            <div className="home">
-                <div className="workouts">
-                    {workouts && workouts.map((workout: any) => (
-                        <WorkoutDetails key={workout._id} workout={workout} />
-                    ))}
-                </div>
-            </div>
-
-            <div className="offcanvas offcanvas-end" tabIndex={-1} id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
-                <div className="offcanvas-header">
-                    <h5 className="offcanvas-title" id="offcanvasRightLabel">Add New Workout</h5>
-                    <button type="button" className="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-                </div>
-                <div className="offcanvas-body">
-                    <WorkoutForm />
-                </div>
+        <div className="home">
+            <Topbar />
+            <div className="workouts">
+                {workouts && workouts.map((workout: any, index: number) => (
+                    <WorkoutDetails key={`${workout._id}-${index}`} workout={workout} />
+                ))}
             </div>
         </div>
     );
-
 };
 
 export default Home;
