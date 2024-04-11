@@ -13,7 +13,7 @@ A full-stack web application for tracking workouts, built with Express.js, Mongo
 
 ## Description
 
-Workout Tracker is a web application that allows users to track their workouts. The application provides CRUD operations for managing workout data. Users can add and delete workouts.
+Workout Tracker is a web application that allows users to track their workouts. The application provides CRUD operations for managing workout data. Users can add, delete and update workouts.
 The application uses Express.js for the backend, MongoDB for the database, and React for the frontend.
 
 ![Capture1](https://github.com/NFernando98/my-workout-app/assets/61730280/7fcc2505-59ab-4e78-ad8c-2c8bde77eb59)
@@ -70,7 +70,7 @@ Usage
 Signup / Login to account.
 Adding a New Workout: To add a new workout, navigate to the Add Workout page and fill out the form with the workout details.
 ### Incoming Additions:
-- Updating a Workout: To update an existing workout, navigate to the Edit Workout page and make the desired changes.
+- Collections: freedom to categorize workouts
 
 # Contributors
 
