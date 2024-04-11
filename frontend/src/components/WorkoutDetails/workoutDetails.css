@@ -77,11 +77,12 @@ summary {
         margin-top: 30px; /* Adjust as needed */
       }
       summary {
-        display: block;
-        cursor: pointer;
-        list-style: none; /* Hide default list-style */
-        -webkit-appearance: none; /* Hide default arrow on iOS */
+        display: list-item; /* Ensure the summary behaves like a list item */
+        list-style-type: none; /* Hide the default list item marker */
+        -webkit-tap-highlight-color: transparent; /* Ensure tap highlight is not shown */
+        cursor: pointer; /* Set cursor to pointer for usability */
       }
+      
       
     
 }
