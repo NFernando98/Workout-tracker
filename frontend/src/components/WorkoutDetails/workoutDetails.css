@@ -76,4 +76,15 @@ summary {
   .delete-button {
       margin-top: 55px; /* Adjust as needed */
     }
+  summary {
+    display: list-item; /* Ensure the summary behaves like a list item */
+    list-style-type: none; /* Hide the default list item marker */
+    -webkit-tap-highlight-color: transparent; /* Ensure tap highlight is not shown */
+    cursor: pointer; /* Set cursor to pointer for usability */
+    -webkit-appearance: none !important; /* Hide default arrow on iOS */
+  }
+
+  summary::-webkit-details-marker {
+    display: none;
+  }
 }
