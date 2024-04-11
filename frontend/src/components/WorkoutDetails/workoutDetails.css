@@ -1,81 +1,90 @@
 .workout-details {
-    background: #fff;
-    border-radius: 7px;
-    margin: 20px auto;
-    padding: 20px;
-    position: relative;
-    box-shadow: 2px 2px 5px rgba(0,0,0,0.05);
-    cursor: pointer;
-  }
-  .workout-details h4 {
-    margin: 0 0 5px 0;
-    font-size: 1.2em;
-    color: var(--primary);
-  }
-  
-.workout-details p {
-    margin: 0;
-    font-size: 0.9em;
-    color: #555;
-    }
-  
-.workout-details span {
-    position: absolute;
-    top: 20px;
-    right: 20px;
-    cursor: pointer;
-    background: #f1f1f1;
-    padding: 6px;
-    border-radius: 50%;
-    color: #333;
-    }
-  
-details {
-    user-select: none;
-  }
-  
-summary {
-    display: block;
-    cursor: pointer;
-  }
-/*2 icons */
-.material-symbols-outlined {
-    margin-top: 0px;
-    font-size: 21px; /* Adjust as needed */
-  }
-.delete-button {
-    margin-top: 60px; /* Adjust as needed */
-  }
-
-  @media (max-width: 768px) {
-    .workout-details {
-        padding: 13px;
-        font-size: 1em; /* Smaller font size */
-        width: 200%; /* Adjust the width as needed */
-        max-width: 200%; /* Optional: Set a maximum width */
-    }
-
-    .workout-details h4 {
-        font-size: 1em; /* Smaller h4 font size */
-    }
-
-    .workout-details p {
-        font-size: 0.8em; /* Smaller p font size */
-    }
-
-    .workout-details span {
-        top: 15px; /* Adjusted position for smaller screen */
-        right: 3px; /* Adjusted position for smaller screen */
-        font-size: 1.2em; /* Smaller font size */
-        padding: 5px; /* Smaller padding */
-    }
-    .material-symbols-outlined {
-        margin-top: -5px;
-        font-size: 21px; /* Adjust as needed */
-      }
-    .delete-button {
-        margin-top: 55px; /* Adjust as needed */
-      }
+  background: #fff;
+  border-radius: 7px;
+  margin: 20px auto;
+  padding: 20px;
+  position: relative;
+  box-shadow: 2px 2px 5px rgba(0,0,0,0.05);
+  cursor: pointer;
+}
+.workout-details h4 {
+  margin: 0 0 5px 0;
+  font-size: 1.2em;
+  color: var(--primary);
 }
 
-  
+.workout-details p {
+  margin: 0;
+  font-size: 0.9em;
+  color: #555;
+  }
+
+.workout-details span {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  cursor: pointer;
+  background: #f1f1f1;
+  padding: 6px;
+  border-radius: 50%;
+  color: #333;
+  }
+
+details {
+  user-select: none;
+}
+
+summary {
+  display: block;
+  cursor: pointer;
+}
+/*2 icons */
+.material-symbols-outlined {
+  margin-top: 0px;
+  font-size: 21px; /* Adjust as needed */
+}
+.delete-button {
+  margin-top: 60px; /* Adjust as needed */
+}
+
+@media (max-width: 768px) {
+  .workout-details {
+      padding: 13px;
+      font-size: 1em; /* Smaller font size */
+      width: 200%; /* Adjust the width as needed */
+      max-width: 200%; /* Optional: Set a maximum width */
+  }
+
+  .workout-details h4 {
+      font-size: 1em; /* Smaller h4 font size */
+  }
+
+  .workout-details p {
+      font-size: 0.8em; /* Smaller p font size */
+  }
+
+  .workout-details span {
+      top: 15px; /* Adjusted position for smaller screen */
+      right: 3px; /* Adjusted position for smaller screen */
+      font-size: 1.2em; /* Smaller font size */
+      padding: 5px; /* Smaller padding */
+  }
+  .material-symbols-outlined {
+      margin-top: -5px;
+      font-size: 21px; /* Adjust as needed */
+    }
+  .delete-button {
+      margin-top: 55px; /* Adjust as needed */
+    }
+  summary {
+    display: list-item; /* Ensure the summary behaves like a list item */
+    list-style-type: none; /* Hide the default list item marker */
+    -webkit-tap-highlight-color: transparent; /* Ensure tap highlight is not shown */
+    cursor: pointer; /* Set cursor to pointer for usability */
+    -webkit-appearance: none !important; /* Hide default arrow on iOS */
+  }
+
+  summary::-webkit-details-marker {
+    display: none;
+  }
+}
