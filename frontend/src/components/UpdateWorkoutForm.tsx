@@ -41,7 +41,7 @@ const UpdateWorkoutForm = ({ workoutId, updateWorkoutDetails, handleCancelEdit }
     }
     updateWorkoutDetails(updatedWorkout);
 
-    const response = await fetch(`http://localhost:4000/api/workouts/${workoutId._id}`, {
+    const response = await fetch(`https://workout-tracker-lac.vercel.app/api/workouts/${workoutId._id}`, {
       method: 'PATCH',
       body: JSON.stringify(updatedWorkout),
       headers: {
