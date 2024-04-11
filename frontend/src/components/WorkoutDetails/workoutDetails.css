@@ -76,6 +76,10 @@ summary {
     .delete-button {
         margin-top: 30px; /* Adjust as needed */
       }
+      summary {
+        display: block;
+        cursor: pointer;
+      }
 }
 
   
