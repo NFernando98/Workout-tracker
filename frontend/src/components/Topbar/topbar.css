@@ -54,9 +54,13 @@
         padding: 10px; /* Reduce padding for smaller screens */
     }
 
+    .top-bar-content {
+        padding: 10px; /* Adjust padding for smaller screens */
+    }
+
     .btn-purple {
         padding: 6px; /* Reduce button padding for smaller screens */
         font-size: 0.8rem; /* Reduce font size for smaller screens */
+        min-width: 80px; /* Set a minimum width for the button */
     }
-
 }
